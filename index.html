@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Monero Paper Wallet Generator — Secure Offline XMR Storage</title>
+  <meta name="description" content="Create and restore your monero paper wallet offline. Learn how to generate your 25-word mnemonic seed and import it safely using monero-wallet-cli." />
+  <meta name="keywords" content="monero paper wallet, monero paper wallet generator, monero wallet CLI, XMR cold storage, monero mnemonic seed, monero offline wallet" />
+  <meta name="robots" content="index,follow">
+
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+   <link rel="icon" type="image/x-icon" href="favicon.png">
+
+  <style>
+    body{font-family:"Helvetica Neue",Arial,sans-serif;background:#fff;color:#2b2b2b}
+    .container{max-width:980px}
+    .page-title{margin:25px 0 10px;text-align:center}
+    .page-sub{margin:0 0 25px;text-align:center;color:#666}
+    .panel{border-color:#e6e6e6}
+    .panel-heading{background:#f5f5f5;color:#333}
+    .panel-body code{white-space:nowrap}
+    .muted{color:#666}
+    .small-note{font-size:12px;color:#666;margin-top:8px}
+    pre{background:#f7f7f7;border:1px solid #eee}
+    .footer{margin:30px 0 20px;text-align:center;color:#8c8c8c;font-size:12px}
+  </style>
+</head>
+<body>
+  <div class="container">
+  	<center>
+	<h1 class="page-header">
+		<a href="index.html"><img src="monero.png" width="300"></a>
+    </h1>
+	<a href="generate.html" class="btn btn-info btn-lg">Generate a new paper wallet</a><br><br>
+	</center>
+	<div class="panel panel-default">
+      <div class="panel-heading"><strong>Why use a Monero paper wallet?</strong></div>
+      <div class="panel-body">
+        <p>Using a Monero paper wallet is the most secure way to store XMR because it keeps your private keys completely offline. Unlike online or exchange wallets, a paper wallet cannot be hacked remotely.</p>
+        <p>Paper wallets are ideal for long-term cold storage, cryptocurrency gifting, or maintaining privacy while holding Monero securely. Whether you are new to crypto or an experienced user, generating a <strong>Monero paper wallet</strong> ensures total control over your funds.</p>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading"><strong>Security recommendations</strong></div>
+      <div class="panel-body">
+        <ul>
+          <li>Always generate your Monero paper wallet <strong>offline</strong> on a clean, trusted computer.</li>
+          <li>Write down your <strong>25-word mnemonic seed</strong> and store it in a safe, dry place.</li>
+          <li>Do not take screenshots or save your seed on internet-connected devices.</li>
+          <li>Consider making two copies of your seed stored in separate secure locations.</li>
+          <li>If possible, use a <strong>metal backup</strong> to protect against fire or water damage.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="panel panel-default" id="cli-restore">
+      <div class="panel-heading"><strong>How to import your Monero paper wallet using <code>monero-wallet-cli</code></strong></div>
+      <div class="panel-body">
+        <p>You can easily restore your Monero paper wallet using the official command-line wallet (<code>monero-wallet-cli</code>). Follow these steps:</p>
+        <ol>
+          <li>Open a terminal on your computer that has the Monero CLI tools installed.</li>
+          <li>Run the deterministic restore command:
+            <pre><code>monero-wallet-cli --restore-deterministic-wallet</code></pre>
+          </li>
+          <li>When prompted:
+            <ul>
+              <li><em>Wallet file name</em>: choose a new wallet name (e.g., <code>coldwallet</code>).</li>
+              <li><em>Mnemonic seed</em>: enter your exact 25 words.</li>
+              <li><em>Restore height</em>: enter a block height or date near your first transaction to speed up scanning.</li>
+              <li><em>Password</em>: set a strong local password.</li>
+            </ul>
+          </li>
+          <li>You can connect to a remote node if you don’t run your own:
+            <pre><code>monero-wallet-cli --daemon-address node.moneroworld.com:18089 --restore-deterministic-wallet</code></pre>
+          </li>
+          <li>After restoring, verify your <strong>public address</strong> and <strong>balance</strong> using:
+            <pre><code>balance</code></pre>
+          </li>
+        </ol>
+        <p>Once verified, your Monero funds are accessible. Remember that anyone with your mnemonic seed can spend your XMR — keep it offline and private.</p>
+      </div>
+    </div>
+    <p class="footer">Monero Paper Wallet — No tracking. 100% privacy.</p>
+  </div>
+
+  <script defer src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script defer src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>
